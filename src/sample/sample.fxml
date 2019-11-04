@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="600.0" maxWidth="900.0" prefHeight="568.0" prefWidth="837.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+    <children>
+        <SplitPane dividerPositions="0.1501766784452297" layoutX="220.0" layoutY="81.0" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                    <children>
+                        <HBox layoutX="221.0" layoutY="-7.0" prefHeight="85.0" prefWidth="776.0" style="-fx-background-color: #e4f2f2;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <children>
+                                <ImageView fitHeight="86.0" fitWidth="105.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@image/5202_mail_128x128.png" />
+                                    </image>
+                                    <HBox.margin>
+                                        <Insets left="20.0" />
+                                    </HBox.margin>
+                                </ImageView>
+                                <Label alignment="CENTER" prefHeight="82.0" prefWidth="618.0" text="POST OFFICE MANAGEMENT" textAlignment="CENTER">
+                                    <font>
+                                        <Font name="Trebuchet MS" size="26.0" />
+                                    </font>
+                                    <textFill>
+                                        <LinearGradient endX="1.0" endY="1.0">
+                                            <stops>
+                                                <Stop color="#00c7f8" />
+                                                <Stop color="#001c57cf" offset="0.9961685823754789" />
+                                                <Stop color="#0082b8" offset="1.0" />
+                                            </stops>
+                                        </LinearGradient>
+                                    </textFill>
+                                    <HBox.margin>
+                                        <Insets left="5.0" right="5.0" />
+                                    </HBox.margin></Label>
+                                <Label alignment="BOTTOM_RIGHT" opacity="0.66" prefHeight="82.0" prefWidth="121.0" text="© A.Vedadiyan">
+                                    <font>
+                                        <Font name="Arial" size="14.0" />
+                                    </font>
+                                    <padding>
+                                        <Insets bottom="5.0" right="2.0" />
+                                    </padding>
+                                </Label>
+                            </children></HBox>
+                    </children>
+                </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                    <children>
+                        <SplitPane dividerPositions="0.8291215403128761" layoutX="199.0" layoutY="58.0" prefHeight="328.0" prefWidth="598.0" style="-fx-border-color: #222831;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <items>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="474.0" prefWidth="663.0" style="-fx-background-color: #e4edf5;">
+                                    <children>
+                                        <TabPane layoutX="263.0" layoutY="89.0" prefHeight="464.0" prefWidth="726.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <tabs>
+                                                <Tab text="Customer's">
+                                                    <content>
+                                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="445.0" prefWidth="737.0">
+                                                            <children>
+                                                                <TableView fx:id="customerTable" editable="true" layoutX="133.0" layoutY="11.0" prefHeight="428.0" prefWidth="538.0">
+                                                                    <columns>
+                                                                        <TableColumn fx:id="firstName" onEditCommit="#firstNameEdit" text="First Name" />
+                                                                        <TableColumn fx:id="lastName" onEditCommit="#lastNameEdit" prefWidth="88.0" text="Last Name" />
+                                                                        <TableColumn fx:id="nationalCode" onEditCommit="#nationalCodeEdit" prefWidth="101.0" text="National Code" />
+                                                                        <TableColumn fx:id="phoneNumber" onEditCommit="#phoneNumberEdit" prefWidth="128.0" text="Phone Number" />
+                                                                        <TableColumn fx:id="email" onEditCommit="#emailEdit" prefWidth="153.0" text="Email Address" />
+                                                                        <TableColumn fx:id="city" prefWidth="105.0" text="City" />
+                                                                    </columns>
+                                                                </TableView>
+                                                                <Label layoutX="11.0" layoutY="22.0" text="Search Customer" textFill="#00898e">
+                                                                    <font>
+                                                                        <Font name="Arial Unicode MS" size="15.0" />
+                                                                    </font>
+                                                                </Label>
+                                                                <TextField fx:id="searchCustomerTextField" layoutX="14.0" layoutY="97.0" onKeyReleased="#searchCustomer" prefHeight="25.0" prefWidth="111.0" promptText="ex : amirreza" />
+                                                                <ComboBox fx:id="searchCustomerWithCombo" layoutX="14.0" layoutY="60.0" prefHeight="25.0" prefWidth="111.0" promptText="Search With" />
+                                                                <ImageView fitHeight="61.0" fitWidth="32.0" layoutX="93.0" layoutY="399.0" onMouseClicked="#reportCustomers" pickOnBounds="true" preserveRatio="true">
+                                                                    <image>
+                                                                        <Image url="@image/c31f9222e6cb85aed3643b585e66f70b.png" />
+                                                                    </image>
+                                                                </ImageView>
+                                                            </children></AnchorPane>
+                                                    </content>
+                                                    <graphic>
+                                                        <ImageView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                            <image>
+                                                                <Image url="@image/577313170ff05b98f8c647d7b372fb8d.png" />
+                                                            </image>
+                                                        </ImageView>
+                                                    </graphic>
+                                                </Tab>
+                                                <Tab text="Parcel's">
+                                                    <content>
+                                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                            <children>
+                                                                <TableView fx:id="parcelTable" editable="true" layoutX="131.0" layoutY="12.0" onMouseClicked="#updateParcel" prefHeight="375.0" prefWidth="540.0">
+                                                                    <columns>
+                                                                        <TableColumn fx:id="parcelName" prefWidth="89.0" text="Parcel Name" />
+                                                                        <TableColumn fx:id="currentCity" prefWidth="85.0" text="Current City" />
+                                                                        <TableColumn fx:id="sendCity" prefWidth="85.0" text="Send City" />
+                                                                        <TableColumn fx:id="receiverCity" prefWidth="85.0" text="Receiver City" />
+                                                                        <TableColumn fx:id="sendDate" minWidth="0.0" text="Send Date" />
+                                                                        <TableColumn fx:id="receiveDate" text="Receive Date" />
+                                                                        <TableColumn fx:id="weight" prefWidth="54.0" text="Weight" />
+                                                                        <TableColumn fx:id="sendingMethod" prefWidth="100.0" text="Sending Method" />
+                                                                        <TableColumn fx:id="postingMethod" prefWidth="100.0" text="Posting Method" />
+                                                                        <TableColumn fx:id="status" prefWidth="90.0" text="Status" />
+                                                                        <TableColumn fx:id="sender" prefWidth="300.0" text="Sender" />
+                                                                        <TableColumn fx:id="receiver" prefWidth="300.0" text="Receiver" />
+                                                                    </columns>
+                                                                </TableView>
+                                                                <Button fx:id="sendbtn" layoutX="353.0" layoutY="397.0" mnemonicParsing="false" onAction="#sendParcels" prefHeight="34.0" prefWidth="96.0" text="Send">
+                                                                    <graphic>
+                                                                        <ImageView fitHeight="26.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                                            <image>
+                                                                                <Image url="@image/9169fe38ccba953b16c4464e1fbf8414-accept.png" />
+                                                                            </image>
+                                                                        </ImageView>
+                                                                    </graphic>
+                                                                </Button>
+                                                                <Label layoutX="20.0" layoutY="24.0" text="Search Parcel" textFill="#00898e">
+                                                                    <font>
+                                                                        <Font name="Arial Unicode MS" size="15.0" />
+                                                                    </font>
+                                                                </Label>
+                                                                <ComboBox fx:id="searchParcelWithSendCity" layoutX="12.0" layoutY="62.0" onAction="#searchWithSendCity" prefHeight="25.0" prefWidth="111.0" promptText="Send City" />
+                                                                <ComboBox fx:id="SearchParcelWithReceiverCity" layoutX="12.0" layoutY="100.0" onAction="#searchWithReceiverCity" prefHeight="25.0" prefWidth="111.0" promptText="Receiver City" />
+                                                                <ComboBox fx:id="searchParcelWithSending" layoutX="12.0" layoutY="138.0" onAction="#searchWithSending" prefHeight="25.0" prefWidth="111.0" promptText="Sending" />
+                                                                <ComboBox fx:id="searchParcelWithStatus" layoutX="12.0" layoutY="175.0" onAction="#searchWithStatus" prefHeight="25.0" prefWidth="111.0" promptText="Status" />
+                                                                <ComboBox fx:id="searchParcelWithCustomer" layoutX="12.0" layoutY="210.0" onAction="#searchWithCustomer" prefHeight="25.0" prefWidth="111.0" promptText="Customer" />
+                                                                <Button layoutX="32.0" layoutY="257.0" mnemonicParsing="false" onAction="#clearFilter" text="Clear">
+                                                                    <graphic>
+                                                                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                                                            <image>
+                                                                                <Image url="@image/b24cd7b375c3991ca8795438ce41d1ea-reload.png" />
+                                                                            </image>
+                                                                        </ImageView>
+                                                                    </graphic>
+                                                                </Button>
+                                                                <ImageView fitHeight="61.0" fitWidth="32.0" layoutX="88.0" layoutY="355.0" onMouseClicked="#reportParcel" pickOnBounds="true" preserveRatio="true">
+                                                                    <image>
+                                                                        <Image url="@image/c31f9222e6cb85aed3643b585e66f70b.png" />
+                                                                    </image>
+                                                                </ImageView>
+                                                            </children></AnchorPane>
+                                                    </content>
+                                                    <graphic>
+                                                        <ImageView fitHeight="35.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                                                            <image>
+                                                                <Image url="@image/128-128-4617aa34917637db3a711dee2853bc8a-delivery.png" />
+                                                            </image>
+                                                        </ImageView>
+                                                    </graphic>
+                                                </Tab>
+                                                <Tab text="City's">
+                                                    <content>
+                                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                            <children>
+                                                                <TableView fx:id="cityTable" editable="true" layoutX="15.0" layoutY="9.0" prefHeight="412.0" prefWidth="255.0">
+                                                                    <columns>
+                                                                        <TableColumn fx:id="cityName" onEditCommit="#cityNameEdit" prefWidth="75.0" text="City Name" />
+                                                                        <TableColumn fx:id="coordinate" prefWidth="179.0" text="Coordiante" />
+                                                                    </columns>
+                                                                </TableView>
+                                                                <Label layoutX="416.0" layoutY="57.0" text="Add New City">
+                                                                    <font>
+                                                                        <Font name="Arial Rounded MT Bold" size="17.0" />
+                                                                    </font>
+                                                                </Label>
+                                                                <GridPane layoutX="354.0" layoutY="107.0" prefHeight="170.0" prefWidth="250.0">
+                                                                    <columnConstraints>
+                                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                                    </columnConstraints>
+                                                                    <rowConstraints>
+                                                                        <RowConstraints maxHeight="78.0" minHeight="10.0" prefHeight="51.0" vgrow="SOMETIMES" />
+                                                                        <RowConstraints maxHeight="109.0" minHeight="10.0" prefHeight="56.0" vgrow="SOMETIMES" />
+                                                                        <RowConstraints maxHeight="136.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                                                                    </rowConstraints>
+                                                                    <children>
+                                                                        <Label text="City Name :">
+                                                                            <GridPane.margin>
+                                                                                <Insets left="10.0" />
+                                                                            </GridPane.margin>
+                                                                            <font>
+                                                                                <Font name="System Bold" size="13.0" />
+                                                                            </font>
+                                                                        </Label>
+                                                                        <Label text="City Latitude :" GridPane.rowIndex="1">
+                                                                            <font>
+                                                                                <Font name="System Bold" size="13.0" />
+                                                                            </font>
+                                                                            <GridPane.margin>
+                                                                                <Insets left="10.0" />
+                                                                            </GridPane.margin>
+                                                                        </Label>
+                                                                        <Label prefHeight="19.0" prefWidth="97.0" text="City Longitude :" GridPane.rowIndex="2">
+                                                                            <font>
+                                                                                <Font name="System Bold" size="13.0" />
+                                                                            </font>
+                                                                            <GridPane.margin>
+                                                                                <Insets left="10.0" />
+                                                                            </GridPane.margin>
+                                                                        </Label>
+                                                                        <TextField fx:id="cityNameTextField" promptText="ex : Tehran" GridPane.columnIndex="1">
+                                                                            <GridPane.margin>
+                                                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                                            </GridPane.margin>
+                                                                        </TextField>
+                                                                        <TextField fx:id="cityLatitudeTextField" promptText="ex : 35.6892" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                                            <GridPane.margin>
+                                                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                                            </GridPane.margin>
+                                                                        </TextField>
+                                                                        <TextField fx:id="cityLongitudeTextField" promptText="ex : 51.3890" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                                            <GridPane.margin>
+                                                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                                            </GridPane.margin>
+                                                                        </TextField>
+                                                                    </children>
+                                                                </GridPane>
+                                                                <Button layoutX="446.0" layoutY="295.0" mnemonicParsing="false" onAction="#saveCity" text="Save">
+                                                                    <graphic>
+                                                                        <ImageView fitHeight="23.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                                                            <image>
+                                                                                <Image url="@image/9169fe38ccba953b16c4464e1fbf8414-accept.png" />
+                                                                            </image>
+                                                                        </ImageView>
+                                                                    </graphic>
+                                                                </Button>
+                                                                <ImageView fitHeight="61.0" fitWidth="32.0" layoutX="277.0" layoutY="389.0" onMouseClicked="#reportCity" pickOnBounds="true" preserveRatio="true">
+                                                                    <image>
+                                                                        <Image url="@image/c31f9222e6cb85aed3643b585e66f70b.png" />
+                                                                    </image>
+                                                                </ImageView>
+                                                            </children>
+                                                            <padding>
+                                                                <Insets left="10.0" />
+                                                            </padding></AnchorPane>
+                                                    </content>
+                                                    <graphic>
+                                                        <ImageView fitHeight="22.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                                                            <image>
+                                                                <Image url="@image/59605aa61d8901512761bfd0533cc4e8-map.png" />
+                                                            </image>
+                                                        </ImageView>
+                                                    </graphic>
+                                                </Tab>
+                                                <Tab text="Setting">
+                                                    <content>
+                                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                            <children>
+                                                                <Label layoutX="217.0" layoutY="36.0" text="Amirreza Vedadiyan">
+                                                                    <font>
+                                                                        <Font name="Berlin Sans FB Demi Bold" size="27.0" />
+                                                                    </font>
+                                                                    <textFill>
+                                                                        <LinearGradient endX="1.0" endY="1.0">
+                                                                            <stops>
+                                                                                <Stop color="RED" />
+                                                                                <Stop color="#5639ff" offset="1.0" />
+                                                                            </stops>
+                                                                        </LinearGradient>
+                                                                    </textFill>
+                                                                </Label>
+                                                                <Label layoutX="204.0" layoutY="125.0" text="Email : amirvedadiyan@gmail.com">
+                                                                    <font>
+                                                                        <Font name="Berlin Sans FB Demi Bold" size="18.0" />
+                                                                    </font>
+                                                                </Label>
+                                                                <Label layoutX="233.0" layoutY="278.0" text="WebSite : amirvedadiyan.ir">
+                                                                    <font>
+                                                                        <Font name="Berlin Sans FB Demi Bold" size="18.0" />
+                                                                    </font>
+                                                                </Label>
+                                                                <Label layoutX="196.0" layoutY="202.0" text="GitHub : github.com/amirvedadiyan">
+                                                                    <font>
+                                                                        <Font name="Berlin Sans FB Demi Bold" size="18.0" />
+                                                                    </font>
+                                                                </Label>
+                                                            </children></AnchorPane>
+                                                    </content>
+                                                    <graphic>
+                                                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                                            <image>
+                                                                <Image url="@image/a54c1112dc8e06e3f52a9456c3cac93b.png" />
+                                                            </image>
+                                                        </ImageView>
+                                                    </graphic>
+                                                </Tab>
+                                            </tabs>
+                                        </TabPane>
+                                    </children></AnchorPane>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="474.0" prefWidth="109.0" style="-fx-background-color: #e4edf5;">
+                                    <children>
+                                        <VBox layoutX="-12.0" layoutY="88.0" prefHeight="474.0" prefWidth="144.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-15.0" AnchorPane.topAnchor="0.0">
+                                            <children>
+                                                <Button fx:id="addPersonbtn" alignment="CENTER" mnemonicParsing="false" onAction="#addPerson" prefHeight="79.0" prefWidth="123.0" style="-fx-background-color: #3e99de;" text="ADD PERSON" textFill="WHITE" textOverrun="CLIP" wrapText="true">
+                                                    <graphic>
+                                                        <ImageView accessibleRole="BUTTON" fitHeight="66.0" fitWidth="54.0">
+                                                            <image>
+                                                                <Image url="@image/male.png" />
+                                                            </image>
+                                                        </ImageView>
+                                                    </graphic>
+                                                    <VBox.margin>
+                                                        <Insets left="10.0" top="50.0" />
+                                                    </VBox.margin>
+                                                    <font>
+                                                        <Font name="Arial Rounded MT Bold" size="9.0" />
+                                                    </font>
+                                                </Button>
+                                                <Button fx:id="addParcelbtn" alignment="CENTER" mnemonicParsing="false" onAction="#addParcelPost" prefHeight="79.0" prefWidth="123.0" style="-fx-background-color: #3e99de;" text="ADD PARCEL POST" textFill="WHITE" textOverrun="CLIP" wrapText="true">
+                                                    <graphic>
+                                                        <ImageView accessibleRole="BUTTON" fitHeight="62.0" fitWidth="58.0">
+                                                            <image>
+                                                                <Image url="@image/2d98cc3c89ec1c3c586d76c49c078afa-stamp.png" />
+                                                            </image>
+                                                        </ImageView>
+                                                    </graphic>
+                                                    <font>
+                                                        <Font name="Arial Rounded MT Bold" size="9.0" />
+                                                    </font>
+                                                    <VBox.margin>
+                                                        <Insets left="10.0" top="20.0" />
+                                                    </VBox.margin>
+                                                </Button>
+                                                <Button fx:id="postalTrackingbtn" alignment="CENTER" mnemonicParsing="false" onAction="#postalTracking" prefHeight="79.0" prefWidth="121.0" style="-fx-background-color: #3e99de;" text="POSTAL TRACKING" textFill="WHITE" textOverrun="CLIP" wrapText="true">
+                                                    <graphic>
+                                                        <ImageView accessibleRole="BUTTON" fitHeight="61.0" fitWidth="52.0">
+                                                            <image>
+                                                                <Image url="@image/7ab6c25395f71e65019ad7d593fd18d5.png" />
+                                                            </image>
+                                                        </ImageView>
+                                                    </graphic>
+                                                    <font>
+                                                        <Font name="Arial Rounded MT Bold" size="9.0" />
+                                                    </font>
+                                                    <VBox.margin>
+                                                        <Insets left="10.0" top="20.0" />
+                                                    </VBox.margin>
+                                                </Button>
+                                                <Button alignment="CENTER" mnemonicParsing="false" onAction="#exit" prefHeight="79.0" prefWidth="123.0" style="-fx-background-color: #b0050b;" text="EXIT" textFill="WHITE" textOverrun="CLIP">
+                                                    <graphic>
+                                                        <ImageView accessibleRole="BUTTON" fitHeight="54.0" fitWidth="49.0">
+                                                            <image>
+                                                                <Image url="@image/bc81dd441f1d3d7db2ae9537df2fab9b-logout.png" />
+                                                            </image>
+                                                        </ImageView>
+                                                    </graphic>
+                                                    <font>
+                                                        <Font name="Arial Rounded MT Bold" size="12.0" />
+                                                    </font>
+                                                    <VBox.margin>
+                                                        <Insets left="10.0" top="20.0" />
+                                                    </VBox.margin>
+                                                </Button>
+                                            </children>
+                                        </VBox>
+                                    </children></AnchorPane>
+                            </items>
+                        </SplitPane>
+                    </children>
+                </AnchorPane>
+            </items>
+        </SplitPane>
+    </children>
+</AnchorPane>
