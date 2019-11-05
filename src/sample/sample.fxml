@@ -77,14 +77,14 @@
                                                     <content>
                                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="445.0" prefWidth="737.0">
                                                             <children>
-                                                                <TableView fx:id="customerTable" editable="true" layoutX="133.0" layoutY="11.0" prefHeight="428.0" prefWidth="538.0">
+                                                                <TableView fx:id="customerTable" onMouseClicked="#editCustomerCity" editable="true" layoutX="133.0" layoutY="11.0" prefHeight="428.0" prefWidth="538.0">
                                                                     <columns>
                                                                         <TableColumn fx:id="firstName" onEditCommit="#firstNameEdit" text="First Name" />
                                                                         <TableColumn fx:id="lastName" onEditCommit="#lastNameEdit" prefWidth="88.0" text="Last Name" />
                                                                         <TableColumn fx:id="nationalCode" onEditCommit="#nationalCodeEdit" prefWidth="101.0" text="National Code" />
                                                                         <TableColumn fx:id="phoneNumber" onEditCommit="#phoneNumberEdit" prefWidth="128.0" text="Phone Number" />
                                                                         <TableColumn fx:id="email" onEditCommit="#emailEdit" prefWidth="153.0" text="Email Address" />
-                                                                        <TableColumn fx:id="city" prefWidth="105.0" text="City" />
+                                                                        <TableColumn fx:id="city"  prefWidth="105.0" text="City" />
                                                                     </columns>
                                                                 </TableView>
                                                                 <Label layoutX="11.0" layoutY="22.0" text="Search Customer" textFill="#00898e">
@@ -176,7 +176,7 @@
                                                     <content>
                                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                                             <children>
-                                                                <TableView fx:id="cityTable" editable="true" layoutX="15.0" layoutY="9.0" prefHeight="412.0" prefWidth="255.0">
+                                                                <TableView fx:id="cityTable" onMouseClicked="#editCoordinate" editable="true" layoutX="15.0" layoutY="9.0" prefHeight="412.0" prefWidth="255.0">
                                                                     <columns>
                                                                         <TableColumn fx:id="cityName" onEditCommit="#cityNameEdit" prefWidth="75.0" text="City Name" />
                                                                         <TableColumn fx:id="coordinate" prefWidth="179.0" text="Coordiante" />

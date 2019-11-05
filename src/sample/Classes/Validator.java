@@ -83,7 +83,7 @@ public class Validator {
         }
 
         for(int i=0 ;i<numberOnly.length() ;i++){
-            if(numberOnly.charAt(i) < 48 || numberOnly.charAt(i) > 57){
+            if((numberOnly.charAt(i) < 48 || numberOnly.charAt(i) > 57) && numberOnly.charAt(i)!='.'){
                 flag = false;
                 break;
             }

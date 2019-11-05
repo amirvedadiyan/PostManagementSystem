@@ -189,8 +189,6 @@ public class Controller implements Initializable {
             dialog.setTitle("Update City");
             dialog.setHeaderText("Change Current City");
             dialog.setContentText("Select New City:");
-
-            // Traditional way to get the response value.
             Optional<City> result = dialog.showAndWait();
             if (result.isPresent()){
                 parcelTable.getSelectionModel().getSelectedItem().setCurrentCity(result.get());
@@ -280,9 +278,47 @@ public class Controller implements Initializable {
     }
 
     @FXML
+    public void editCustomerCity(MouseEvent event){
+        if(event.getClickCount() == 2){
+            Customer edit = customerTable.getSelectionModel().getSelectedItem();
+            ArrayList<City> choices = Helper.getCities();
+            ChoiceDialog<City> dialog = new ChoiceDialog<City>(choices.get(0),choices);
+            dialog.setTitle("Edit City");
+            dialog.setHeaderText("Change  City");
+            dialog.setContentText("Select New City:");
+            Optional<City> result = dialog.showAndWait();
+            if (result.isPresent()){
+                edit.setCity(result.get());
+                customerTable.refresh();
+            }
+
+        }
+    }
+
+    @FXML
     public void cityNameEdit(TableColumn.CellEditEvent<City,String> cityStringCellEditEvent){
         City edit = cityTable.getSelectionModel().getSelectedItem();
         edit.setCityName(cityStringCellEditEvent.getNewValue());
+    }
+
+    @FXML
+    public void editCoordinate(MouseEvent event){
+            if(event.getClickCount() == 2){
+                City edit = cityTable.getSelectionModel().getSelectedItem();
+                TextInputDialog dialog = new TextInputDialog("25.6 85.6");
+                dialog.setTitle("Edit Coordinate");
+                dialog.setHeaderText("Edit Latitude and Longitude");
+                dialog.setContentText("Enter new Values:");
+                Optional<String> result = dialog.showAndWait();
+                if (result.isPresent()){
+                    String newCoordinate = result.get();
+                    int spacePlace = newCoordinate.indexOf(" ");
+                    String latitude = newCoordinate.substring(0,spacePlace);
+                    String longitude = newCoordinate.substring(spacePlace);
+                    edit.setCoordinate(new Coordinate(Double.valueOf(latitude),Double.valueOf(longitude)));
+                    cityTable.refresh();
+                }
+            }
     }
 
     @FXML
@@ -486,7 +522,7 @@ public class Controller implements Initializable {
         DirectoryChooser directoryChooser = new DirectoryChooser();
         File file = directoryChooser.showDialog(null);
         if(file!=null){
-            String path = file.getAbsolutePath() + "\\ParcelReport.html";
+            String path = file.getAbsolutePath() + "\\CityReport.html";
             System.out.println("File Saved in :" + path);
             File report = new File(path);
             try {
